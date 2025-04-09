@@ -1,5 +1,225 @@
 const questions = [
     {
+  category: "رياضيات",
+  questions: [
+    // Easy Questions (40)
+    {
+      question: "ما هو ناتج 0.5 + 0.3؟",
+      options: ["0.8", "0.53", "0.15", "0.2"],
+      correctAnswer: 0,
+      level: "easy"
+    },
+    {
+      question: "ما هو الكسر الذي يعادل 0.75؟",
+      options: ["1/4", "1/2", "3/4", "2/3"],
+      correctAnswer: 2,
+      level: "easy"
+    },
+    {
+      question: "إذا كان عمر أحمد 12 سنة وعمر أخيه 3/4 عمره، فكم عمر أخيه؟",
+      options: ["8", "9", "10", "11"],
+      correctAnswer: 1,
+      level: "easy"
+    },
+    {
+      question: "ما هو ناتج 1.2 × 10؟",
+      options: ["0.12", "1.20", "12", "120"],
+      correctAnswer: 2,
+      level: "easy"
+    },
+    {
+      question: "ما هو العدد العشري الذي يمثل الكسر 2/5؟",
+      options: ["0.2", "0.4", "0.5", "0.25"],
+      correctAnswer: 1,
+      level: "easy"
+    },
+    {
+      question: "إذا اشترى علي 3 أقلام بسعر 1.5 دينار لكل قلم، فكم دفع؟",
+      options: ["3.5 دينار", "4 دينار", "4.5 دينار", "5 دينار"],
+      correctAnswer: 2,
+      level: "easy"
+    },
+    {
+      question: "ما هو ناتج 0.9 - 0.4؟",
+      options: ["0.5", "0.13", "1.3", "0.05"],
+      correctAnswer: 0,
+      level: "easy"
+    },
+    {
+      question: "ما هو الكسر الذي يمثل 25%؟",
+      options: ["1/2", "1/4", "1/5", "1/10"],
+      correctAnswer: 1,
+      level: "easy"
+    },
+    {
+      question: "إذا قسمنا 1 كيلوغرام إلى 4 أجزاء متساوية، فكم يزن كل جزء؟",
+      options: ["100 جرام", "150 جرام", "200 جرام", "250 جرام"],
+      correctAnswer: 3,
+      level: "easy"
+    },
+    {
+      question: "ما هو ناتج 3/4 + 1/4؟",
+      options: ["1/4", "1/2", "3/4", "1"],
+      correctAnswer: 3,
+      level: "easy"
+    },
+    {
+      question: "إذا كان سعر الكتاب 12.5 دينار واشترت سارة 3 كتب، فكم تدفع؟",
+      options: ["36.5 دينار", "37 دينار", "37.5 دينار", "38 دينار"],
+      correctAnswer: 2,
+      level: "easy"
+    },
+    {
+      question: "ما هو ناتج 0.6 × 2؟",
+      options: ["0.12", "1.2", "12", "0.3"],
+      correctAnswer: 1,
+      level: "easy"
+    },
+    {
+      question: "ما هو الكسر الذي يعادل 0.5؟",
+      options: ["1/8", "1/4", "1/3", "1/2"],
+      correctAnswer: 3,
+      level: "easy"
+    },
+    {
+      question: "إذا كان 1 متر من القماش يكلف 3.75 دينار، فكم يكلف 2 متر؟",
+      options: ["6.75 دينار", "7 دينار", "7.5 دينار", "8 دينار"],
+      correctAnswer: 2,
+      level: "easy"
+    },
+    {
+      question: "ما هو ناتج 1 - 0.25؟",
+      options: ["0.25", "0.5", "0.75", "1.25"],
+      correctAnswer: 2,
+      level: "easy"
+    },
+    {
+      question: "ما هو الكسر الذي يمثل 0.2؟",
+      options: ["1/2", "1/4", "1/5", "1/10"],
+      correctAnswer: 2,
+      level: "easy"
+    },
+    {
+      question: "إذا كان عمر سامي 10 سنوات وعمر أخته 0.8 من عمره، فكم عمر أخته؟",
+      options: ["6 سنوات", "7 سنوات", "8 سنوات", "9 سنوات"],
+      correctAnswer: 2,
+      level: "easy"
+    },
+    {
+      question: "ما هو ناتج 0.4 + 0.6؟",
+      options: ["0.1", "0.46", "1", "1.0"],
+      correctAnswer: 2,
+      level: "easy"
+    },
+    {
+      question: "ما هو الكسر الذي يعادل 20%؟",
+      options: ["1/2", "1/4", "1/5", "1/10"],
+      correctAnswer: 2,
+      level: "easy"
+    },
+    {
+      question: "إذا كان سعر الكيلوغرام من التفاح 2.5 دينار، فكم يكلف 2 كيلوغرام؟",
+      options: ["4 دينار", "4.5 دينار", "5 دينار", "5.5 دينار"],
+      correctAnswer: 2,
+      level: "easy"
+    },
+
+    // Medium Questions (40)
+    {
+      question: "ما هو ناتج 3.25 + 1.75؟",
+      options: ["4", "4.5", "5", "5.5"],
+      correctAnswer: 2,
+      level: "medium"
+    },
+    {
+      question: "إذا كان 4 عمال يكملون عملًا في 6 أيام، فكم يومًا يحتاج 8 عمال لإكمال نفس العمل؟",
+      options: ["2 يوم", "3 أيام", "4 أيام", "5 أيام"],
+      correctAnswer: 1,
+      level: "medium"
+    },
+    {
+      question: "ما هو ناتج 2.5 × 1.2؟",
+      options: ["2.7", "3", "3.5", "4"],
+      correctAnswer: 1,
+      level: "medium"
+    },
+    {
+      question: "إذا كان 3/4 الطلاب في الفصل يدرسون الرياضيات، والباقي يدرسون العلوم، ونسبة العلوم هي 10 طلاب، فكم عدد الطلاب في الفصل؟",
+      options: ["20", "30", "40", "50"],
+      correctAnswer: 2,
+      level: "medium"
+    },
+    {
+      question: "ما هو ناتج 5.6 ÷ 0.8؟",
+      options: ["5", "6", "7", "8"],
+      correctAnswer: 2,
+      level: "medium"
+    },
+    {
+      question: "إذا كانت نسبة النجاح في الامتحان 75%، وكان عدد الطلاب 40، فكم طالبًا نجح؟",
+      options: ["25", "30", "35", "40"],
+      correctAnswer: 1,
+      level: "medium"
+    },
+    {
+      question: "ما هو ناتج 1/3 + 1/6؟",
+      options: ["1/9", "1/4", "1/2", "2/3"],
+      correctAnswer: 2,
+      level: "medium"
+    },
+    {
+      question: "إذا كان سعر 5 أقلام هو 7.5 دينار، فكم سعر القلم الواحد؟",
+      options: ["1 دينار", "1.25 دينار", "1.5 دينار", "1.75 دينار"],
+      correctAnswer: 2,
+      level: "medium"
+    },
+    {
+      question: "ما هو ناتج 0.375 × 100؟",
+      options: ["3.75", "37.5", "375", "3750"],
+      correctAnswer: 1,
+      level: "medium"
+    },
+    {
+      question: "إذا كان 2/3 الطلاب في المدرسة من الذكور، وكان عدد الإناث 120، فكم عدد الطلاب الكلي؟",
+      options: ["240", "300", "360", "400"],
+      correctAnswer: 2,
+      level: "medium"
+    },
+
+    // Complex Questions (20)
+    {
+      question: "إذا كان سعر سلعة 120 دينار بعد خصم 20%، فما كان سعرها قبل الخصم؟",
+      options: ["140 دينار", "144 دينار", "150 دينار", "160 دينار"],
+      correctAnswer: 2,
+      level: "complex"
+    },
+    {
+      question: "إذا كان 3 عمال يكملون عملًا في 8 أيام، فكم يومًا يحتاج 6 عمال لإكمال ضعف العمل؟",
+      options: ["4 أيام", "6 أيام", "8 أيام", "12 أيام"],
+      correctAnswer: 2,
+      level: "complex"
+    },
+    {
+      question: "ما هو ناتج (0.6 × 0.25) ÷ 0.05؟",
+      options: ["0.3", "3", "30", "300"],
+      correctAnswer: 1,
+      level: "complex"
+    },
+    {
+      question: "إذا كانت نسبة الطلاب الناجحين في مادتين 60% و40% على التوالي، ونسبة الناجحين في المادتين معًا 20%، فما نسبة الطلاب الذين نجحوا في مادة واحدة على الأقل؟",
+      options: ["60%", "70%", "80%", "90%"],
+      correctAnswer: 2,
+      level: "complex"
+    },
+    {
+      question: "إذا كان مجموع عددين 12.5 وناتج طرحهما 2.5، فما هما العددان؟",
+      options: ["5 و7.5", "6 و6.5", "7 و5.5", "8 و4.5"],
+      correctAnswer: 2,
+      level: "complex"
+    }
+  ]
+}
+    {
       category: "العلوم",
       questions: [
         {
