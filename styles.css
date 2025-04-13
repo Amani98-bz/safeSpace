@@ -57,6 +57,7 @@ body {
 }
 .config-container .config-title {
   font-size: 1.31rem;
+  margin-top: 70px;
 }
 .config-container .config-option {
   margin-top: 25px;
