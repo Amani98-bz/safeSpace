@@ -1,56 +1,54 @@
+<!-- index.html المعدل بدون خيارات مستوى الصعوبة -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz App in JavaScript | CodingNepal</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <title>تطبيق الاختبارات</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
   </head>
   <body>
-    <!-- Name Inputs at the Top of the Page -->
     <div class="name-input-container">
       <div class="config-option">
-        <h4 class="option-title">Enter Your Name</h4>
+        <h4 class="option-title">أدخل اسمك</h4>
         <div class="name-inputs">
-          <input type="text" id="firstname" placeholder="First Name" required>
-          <input type="text" id="lastname" placeholder="Last Name" required>
+          <input type="text" id="firstname" placeholder="الاسم" required>
+          <input type="text" id="lastname" placeholder="اللقب" required>
         </div>
       </div>
     </div>
 
-    <!-- Quiz Configuration Popup -->
     <div class="config-popup popup-container active">
       <div class="config-container quiz-box">
-        <h2 class="config-title">Quiz Configuration</h2>
+        <h2 class="config-title">إعداد الاختبار</h2>
         <div class="config-option">
-          <h4 class="option-title">Select Category</h4>
+          <h4 class="option-title">اختر المحور</h4>
           <div class="category-options">
             <button class="category-option active">العلوم</button>
             <button class="category-option">الرياضة</button>
             <button class="category-option">الجغرافيا</button>
             <button class="category-option">الإسلامية</button>
+            <button class="category-option">الرياضيات</button>
           </div>
         </div>
         <div class="config-option">
-          <h4 class="option-title">No. of Questions</h4>
+          <h4 class="option-title">عدد الأسئلة</h4>
           <div class="question-options">
             <button class="question-option">5</button>
             <button class="question-option active">10</button>
             <button class="question-option">15</button>
             <button class="question-option">20</button>
-            <button class="question-option">25</button>
           </div>
         </div>
-        <button class="start-quiz-btn" id="start-quiz-btn" disabled>Start Quiz</button>
+        <button class="start-quiz-btn" id="start-quiz-btn" disabled>ابدأ</button>
       </div>
     </div>
 
-    <!-- Quiz Popup -->
     <div class="quiz-popup popup-container">
       <div class="quiz-container quiz-box">
         <header class="quiz-header">
-          <h2 class="quiz-title">Quiz Application</h2>
+          <h2 class="quiz-title">الاختبار</h2>
           <div class="quiz-timer">
             <span class="material-symbols-rounded">timer</span>
             <p class="timer-duration"></p>
@@ -63,24 +61,21 @@
         <div class="quiz-footer">
           <p class="question-status"></p>
           <button class="next-question-btn">
-            Next
+            التالي
             <span class="material-symbols-rounded">arrow_right_alt</span>
           </button>
         </div>
       </div>
     </div>
 
-    <!-- Quiz Result Popup -->
     <div class="result-popup popup-container">
       <div class="result-container quiz-box">
-        <img src="" class="result-img" />
-        <h2 class="result-title">Quiz Completed!</h2>
+        <h2 class="result-title">تم الانتهاء!</h2>
         <p class="result-message"></p>
-        <button class="try-again-btn">Try Again</button>
+        <button class="try-again-btn">إعادة الاختبار</button>
       </div>
     </div>
-  
-    <!-- Scripts -->
+
     <script src="arabic.js"></script>
     <script src="script.js"></script>
   </body>
