@@ -1,3 +1,5 @@
+// script.js المعدل بالكامل بدون تحديد مستوى صعوبة (اختيار عشوائي من جميع المستويات)
+
 // DOM element selectors
 const configContainer = document.querySelector(".config-container");
 const quizContainer = document.querySelector(".quiz-container");
@@ -14,7 +16,7 @@ const startQuizBtn = document.getElementById('start-quiz-btn');
 const QUIZ_TIME_LIMIT = 15;
 let currentTime = QUIZ_TIME_LIMIT;
 let timer = null;
-let quizCategory = "programming";
+let quizCategory = "";
 let numberOfQuestions = 10;
 let currentQuestion = null;
 const questionsIndexHistory = [];
@@ -30,12 +32,10 @@ const checkInputs = () => {
   }
 };
 
-// Add event listeners to inputs
 firstNameInput.addEventListener('input', checkInputs);
 lastNameInput.addEventListener('input', checkInputs);
 
 // Display the quiz result and hide the quiz container
-
 const showQuizResult = () => {
   clearInterval(timer);
   document.querySelector(".quiz-popup").classList.remove("active");
@@ -54,7 +54,7 @@ const showQuizResult = () => {
   localStorage.setItem('userData', JSON.stringify(userData));
 
   // Display the result message
-  const resultText = `You answered <b>${correctAnswersCount}</b> out of <b>${numberOfQuestions}</b> questions correctly. Great effort!`;
+  const resultText = `أجبت بشكل صحيح على <b>${score}</b> من <b>${numberOfQuestions}</b> سؤال.`;
   document.querySelector(".result-message").innerHTML = resultText;
 
   // Redirect based on score after a short delay to allow the user to read the message
@@ -66,6 +66,7 @@ const showQuizResult = () => {
     }
   }, 3000); // 3 seconds delay before redirecting
 };
+
 // Clear and reset the timer
 const resetTimer = () => {
   clearInterval(timer);
@@ -84,19 +85,20 @@ const startTimer = () => {
       nextQuestionBtn.style.visibility = "visible";
       quizContainer.querySelector(".quiz-timer").style.background = "#c31402";
       highlightCorrectAnswer();
-      // Disable all answer options after one option is selected
       answerOptions.querySelectorAll(".answer-option").forEach((option) => (option.style.pointerEvents = "none"));
     }
   }, 1000);
 };
 
-// Fetch a random question from based on the selected category
+// Fetch a random question from based on the selected category (random difficulty)
 const getRandomQuestion = () => {
   const categoryQuestions = questions.find((cat) => cat.category.toLowerCase() === quizCategory.toLowerCase())?.questions || [];
+
   // Show the results if all questions have been used
   if (questionsIndexHistory.length >= Math.min(numberOfQuestions, categoryQuestions.length)) {
     return showQuizResult();
   }
+
   // Filter out already asked questions and choose a random one
   const availableQuestions = categoryQuestions.filter((_, index) => !questionsIndexHistory.includes(index));
   const randomQuestion = availableQuestions[Math.floor(Math.random() * availableQuestions.length)];
@@ -120,10 +122,8 @@ const handleAnswer = (option, answerIndex) => {
   const isCorrect = currentQuestion.correctAnswer === answerIndex;
   option.classList.add(isCorrect ? "correct" : "incorrect");
   !isCorrect ? highlightCorrectAnswer() : correctAnswersCount++;
-  // Insert icon based on correctness
   const iconHTML = `<span class="material-symbols-rounded"> ${isCorrect ? "check_circle" : "cancel"} </span>`;
   option.insertAdjacentHTML("beforeend", iconHTML);
-  // Disable all answer options after one option is selected
   answerOptions.querySelectorAll(".answer-option").forEach((option) => (option.style.pointerEvents = "none"));
   nextQuestionBtn.style.visibility = "visible";
 };
@@ -135,18 +135,16 @@ const renderQuestion = () => {
   disableSelection = false;
   resetTimer();
   startTimer();
-  // Update the UI
   nextQuestionBtn.style.visibility = "hidden";
   quizContainer.querySelector(".quiz-timer").style.background = "#32313C";
   quizContainer.querySelector(".question-text").textContent = currentQuestion.question;
-  questionStatus.innerHTML = `<b>${questionsIndexHistory.length}</b> of <b>${numberOfQuestions}</b> Questions`;
+  questionStatus.innerHTML = `<b>${questionsIndexHistory.length}</b> من <b>${numberOfQuestions}</b>`;
   answerOptions.innerHTML = "";
-  // Create option <li> elements, append them, and add click event listeners
   currentQuestion.options.forEach((option, index) => {
     const li = document.createElement("li");
     li.classList.add("answer-option");
     li.textContent = option;
-    answerOptions.append(li);
+    answerOptions.appendChild(li);
     li.addEventListener("click", () => handleAnswer(li, index));
   });
 };
@@ -155,7 +153,6 @@ const renderQuestion = () => {
 const startQuiz = () => {
   document.querySelector(".config-popup").classList.remove("active");
   document.querySelector(".quiz-popup").classList.add("active");
-  // Update the quiz category and number of questions
   quizCategory = configContainer.querySelector(".category-option.active").textContent;
   numberOfQuestions = parseInt(configContainer.querySelector(".question-option.active").textContent);
   renderQuestion();
@@ -164,7 +161,7 @@ const startQuiz = () => {
 // Highlight the selected option on click - category or no. of question
 configContainer.querySelectorAll(".category-option, .question-option").forEach((option) => {
   option.addEventListener("click", () => {
-    option.parentNode.querySelector(".active").classList.remove("active");
+    option.parentNode.querySelector(".active")?.classList.remove("active");
     option.classList.add("active");
   });
 });
