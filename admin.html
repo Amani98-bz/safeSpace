@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>لوحة النتائج</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      padding: 20px;
+      direction: rtl;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+    th {
+      background-color: #5145BA;
+      color: white;
+    }
+  </style>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
+</head>
+<body>
+
+  <h1>📊 لوحة نتائج المستخدمين</h1>
+  <table id="results-table">
+    <thead>
+      <tr>
+        <th>الاسم</th>
+        <th>اللقب</th>
+        <th>المادة</th>
+        <th>النتيجة</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBlxa26A9j2BThX7IWy4dfL2CDuH9wWxUM",
+      authDomain: "quiz-fbf9d.firebaseapp.com",
+      databaseURL: "https://quiz-fbf9d-default-rtdb.firebaseio.com",
+      projectId: "quiz-fbf9d",
+      storageBucket: "quiz-fbf9d.firebasestorage.app",
+      messagingSenderId: "71198579399",
+      appId: "1:71198579399:web:26092769a76d22adcdfce2",
+      measurementId: "G-PVQTJKH73E"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
+    const tableBody = document.querySelector("#results-table tbody");
+
+    database.ref("results").once("value", (snapshot) => {
+      const data = snapshot.val();
+      for (let key in data) {
+        const { firstName, lastName, category, score } = data[key];
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${firstName}</td>
+          <td>${lastName}</td>
+          <td>${category}</td>
+          <td>${score}</td>
+        `;
+        tableBody.appendChild(row);
+      }
+    });
+
+
+    const password = prompt("أدخل كلمة المرور:");
+if (password !== "admin123") {
+  document.body.innerHTML = "<h2>🚫 غير مصرح</h2>";
+}
+  </script>
+</body>
+</html>
